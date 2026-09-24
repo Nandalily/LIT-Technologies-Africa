@@ -1,44 +1,34 @@
-<section class="hero">
+<section class="hero" id="top">
 
 <div class="container">
 
 <div class="row align-items-center">
 
-<div class="col-lg-6">
+<div class="col-lg-6" data-reveal>
 
-<span class="badge bg-warning text-dark mb-3">
-Empowering Africa Through Technology
-</span>
+<p class="eyebrow"><span class="pulse-dot"></span> Africa's technology partner</p>
 
 <h1 class="display-3 fw-bold">
 
-Innovate.
-
-Empower.
-
-Transform.
+Build what matters.
 
 </h1>
 
 <p class="lead mt-4">
 
-LIT Technologies Africa is an international technology company providing
-AI training, software development, hotspot billing systems,
-professional certification, technology mentorship, and cloud hosting solutions.
+LIT helps ambitious teams, institutions, and communities turn big ideas into dependable digital products, connected spaces, and capable people.
 
 </p>
 
 <div class="mt-5">
 
-<a href="#" class="btn btn-primary btn-lg me-3">
-
-Explore Programs
+<a href="#programs" class="btn btn-primary btn-lg me-3">
+Explore LIT School <i class="bi bi-arrow-up-right"></i>
 
 </a>
 
-<a href="#" class="btn btn-outline-light btn-lg">
-
-Our Services
+<a href="/services" class="btn btn-outline-light btn-lg">
+Explore solutions <i class="bi bi-arrow-right"></i>
 
 </a>
 
@@ -46,15 +36,21 @@ Our Services
 
 </div>
 
-<div class="col-lg-6 text-center">
+<div class="col-lg-6 text-center" data-reveal="right">
 
-<img
-
-src="/images/hero.png"
-
-class="img-fluid"
-
-alt="LIT Technologies Africa">
+<div class="hero-announcements" data-announcements>
+	<% if (announcements && announcements.length) { %>
+		<% announcements.forEach((announcement, index) => { %>
+		<article class="announcement-slide <%= index === 0 ? 'is-active' : '' %>" data-announcement-slide>
+			<img src="<%= announcement.image %>" alt="<%= announcement.title %>">
+			<div class="announcement-caption"><span><%= announcement.title %></span><small><%= String(index + 1).padStart(2, '0') %> / <%= String(announcements.length).padStart(2, '0') %></small></div>
+		</article>
+		<% }) %>
+		<div class="announcement-controls"><button type="button" data-announcement-prev aria-label="Previous announcement"><i class="bi bi-arrow-left"></i></button><div class="announcement-dots"><% announcements.forEach((announcement, index) => { %><button type="button" class="<%= index === 0 ? 'is-active' : '' %>" data-announcement-dot="<%= index %>" aria-label="Show announcement <%= index + 1 %>"></button><% }) %></div><button type="button" data-announcement-next aria-label="Next announcement"><i class="bi bi-arrow-right"></i></button></div>
+	<% } else { %>
+		<div class="announcement-empty"><span class="announcement-mark"><i class="bi bi-megaphone"></i></span><p class="eyebrow">LIT noticeboard</p><h2>Ideas in motion.</h2><p>Announcements, opportunities, and moments from the LIT community will appear here.</p><span class="announcement-empty-line"></span></div>
+	<% } %>
+</div>
 
 </div>
 

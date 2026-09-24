@@ -1,0 +1,55 @@
+<section class="service-page service-<%= service.accent %>">
+    <div class="container">
+        <div class="service-hero row align-items-center g-5">
+            <div class="col-lg-7">
+                <a class="back-link" href="/"><i class="bi bi-arrow-left"></i> Back to LIT</a>
+                <% if (service.accent === 'school') { %><div class="school-badge"><span class="brand-mark" aria-hidden="true"><span class="logo-circuit"></span><span class="logo-leaf"></span></span><span>LIT SCHOOL<br><small>LEARN / BUILD / GROW</small></span></div><% } %>
+                <p class="eyebrow mt-5"><i class="bi <%= service.icon %>"></i> <%= service.eyebrow %></p>
+                <h1><%= service.title %></h1>
+                <p class="lead"><%= service.description %></p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a class="btn btn-primary btn-lg" href="/contact">Start a conversation <i class="bi bi-arrow-up-right"></i></a>
+                    <a class="btn btn-outline-light btn-lg" href="/#programs">See what we do</a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="service-orbit">
+                    <div class="service-icon"><i class="bi <%= service.icon %>"></i></div>
+                    <span class="orbit-label label-one">Strategy</span>
+                    <span class="orbit-label label-two">People</span>
+                    <span class="orbit-label label-three">Systems</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="service-detail">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <p class="eyebrow">What you get</p>
+                <h2>Useful from day one.</h2>
+                <p class="text-muted">We keep the technology clear, measurable, and connected to the outcomes that matter to your people and your business.</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="feature-list">
+                    <% service.features.forEach((feature, index) => { %>
+                    <div class="feature-row">
+                        <span>0<%= index + 1 %></span>
+                        <h3><%= feature %></h3>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-4">
+        <div><p class="eyebrow">Ready when you are</p><h2>Let’s make the next move practical.</h2></div>
+        <a class="btn btn-light btn-lg" href="mailto:hello@litafrica.org">hello@litafrica.org <i class="bi bi-arrow-up-right"></i></a>
+    </div>
+</section>

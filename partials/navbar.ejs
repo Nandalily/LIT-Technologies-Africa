@@ -1,9 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav">
 
 <div class="container">
 
-<a class="navbar-brand fw-bold" href="/">
-LIT Technologies Africa
+<a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/">
+    <img src="/images/Lit Logo.png" alt="LIT logo" class="brand-mark" />
+<!-- <span class="brand-mark" aria-label="LIT logo"><span class="logo-circuit"></span><span class="logo-leaf"></span></span> -->
+<span>LIT <small>TECHNOLOGIES AFRICA</small></span>
 </a>
 
 <button class="navbar-toggler"
@@ -23,37 +25,36 @@ data-bs-target="#navbar">
 <a class="nav-link" href="/">Home</a>
 </li>
 
-<li class="nav-item">
-<a class="nav-link" href="#">Services</a>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="/services" role="button" data-bs-toggle="dropdown">Solutions</a>
+<ul class="dropdown-menu dropdown-menu-dark">
+<li><a class="dropdown-item" href="/services">All services</a></li>
+<li><a class="dropdown-item" href="/hosting">LIT Cloud hosting</a></li>
+<li><a class="dropdown-item" href="/hotspot">Hotspot billing</a></li>
+</ul>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#">Programs</a>
+<a class="nav-link" href="/school">LIT School</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#">Events</a>
+<a class="nav-link" href="/album">Albums</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#">Mentors</a>
+<a class="nav-link" href="/#programs">Programs</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="#">Contact</a>
+<a class="nav-link" href="/contact">Contact</a>
 </li>
 
 <li class="nav-item">
+<a class="btn btn-primary nav-cta ms-lg-3" href="/contact">
+Talk to us <i class="bi bi-arrow-up-right"></i>
 
-<a class="btn btn-primary ms-3"
-
-href="#">
-
-Login
-
-</a>
-
-</li>
+</a></li>
 
 </ul>
 

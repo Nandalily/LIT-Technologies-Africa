@@ -57,3 +57,14 @@ MailingListSubscriber (id, email, subscribed_at, active)
 Your current WiFi billing system (Node/Express, Prisma, MikroTik RouterOS, MTN/Airtel Money) is essentially the engine for **LIT Hotspot Billing** and **LIT Hotspot Connection** — you'd wrap it behind an internal API and surface a subset (plan selection, top-up, connection status) on the LIT Technologies site rather than building hotspot billing from scratch again.
 
 Want me to scaffold the actual Express project structure and starter code (folders, Prisma schema file, auth boilerplate) next, or dig into one phase in more depth first — like the payment/enrollment flow or the admin dashboard?
+
+## Digital albums
+
+The album feature is available at `/album`. It supports:
+
+- PDF albums rendered page by page in the browser
+- Photo albums with previous and next page controls
+- A session-protected admin uploader at `/admin/login`
+- Local metadata in `data/albums.json` and files in `public/uploads/albums`
+
+Set `ADMIN_PASSWORD` in `.env` before deploying. The local development fallback is `lit-admin`. Uploads are limited to PDF, JPG, PNG, and WEBP files at 25 MB per file.

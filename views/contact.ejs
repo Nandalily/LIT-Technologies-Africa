@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<section class="contact-page">
+    <div class="container">
+        <div class="contact-page-heading" data-reveal>
+            <p class="eyebrow">Let’s connect</p>
+            <h1>Bring us the thing you want to make possible.</h1>
+            <p>From Kampala to the wider continent, we work with teams building useful technology for real people.</p>
+        </div>
+        <div class="contact-layout">
+            <div class="contact-info" data-reveal>
+                <div class="contact-detail"><span class="contact-icon"><i class="bi bi-envelope"></i></span><div><small>Email us</small><a href="mailto:hello@litafrica.org">hello@litafrica.org</a></div></div>
+                <div class="contact-detail"><span class="contact-icon"><i class="bi bi-geo-alt"></i></span><div><small>Our home base</small><strong>Kampala, Uganda</strong><span>Working across Africa</span></div></div>
+                <div class="contact-detail"><span class="contact-icon"><i class="bi bi-clock"></i></span><div><small>Response time</small><strong>Within one working day</strong></div></div>
+                <div class="contact-social"><span>Find us where ideas move</span><a href="mailto:hello@litafrica.org">Email <i class="bi bi-arrow-up-right"></i></a></div>
+            </div>
+            <div class="contact-form-wrap" data-reveal="right"><p class="eyebrow">Start here</p><h2>Tell us what’s on your mind.</h2><form class="contact-page-form" action="mailto:hello@litafrica.org" method="post" enctype="text/plain"><div class="form-row"><label>Full name<input name="name" type="text" placeholder="Your name" required></label><label>Work email<input name="email" type="email" placeholder="you@company.com" required></label></div><label>What can we help with?<select name="interest"><option>Choose a focus</option><option>Digital product or website</option><option>Hosting and infrastructure</option><option>Hotspot billing</option><option>LIT School or training</option><option>Something else</option></select></label><label>Your note<textarea name="message" rows="5" placeholder="A little context helps us come prepared."></textarea></label><button class="btn btn-primary" type="submit">Send your note <i class="bi bi-arrow-up-right"></i></button></form></div>
+        </div>
+    </div>
+</section>
+<section class="map-section"><div class="container"><div class="map-heading"><div><p class="eyebrow">Where we work</p><h2>Africa is the address.</h2></div><p>Zoom in, move around, and see where our work begins.</p></div><div class="map-frame"><div id="africa-map" aria-label="Interactive map of Africa"></div><div class="map-badge"><i class="bi bi-crosshair"></i><span><strong>Kampala</strong><small>LIT Technologies Africa</small></span></div></div><div class="map-controls-note"><i class="bi bi-arrows-move"></i> Drag to explore <span></span><i class="bi bi-zoom-in"></i> Scroll or use controls to zoom</div></div></section>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="/js/contact-map.js"></script>

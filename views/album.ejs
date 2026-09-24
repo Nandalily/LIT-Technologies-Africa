@@ -1,0 +1,15 @@
+<section class="album-page">
+    <div class="container">
+        <div class="album-heading"><p class="eyebrow">The LIT archive</p><h1>Stories worth turning a page for.</h1><p>Explore our events, cohorts, launches, and the people building a more connected Africa.</p></div>
+        <% if (!albums.length) { %><div class="empty-album"><i class="bi bi-images"></i><h2>The first story is on its way.</h2><p>Check back soon for LIT albums and publications.</p></div><% } %>
+        <div class="album-grid">
+            <% albums.forEach((album) => { %>
+            <article class="album-card">
+                <div class="album-card-art"><i class="bi <%= album.files[0].type === 'application/pdf' ? 'bi-file-earmark-pdf' : 'bi-images' %>"></i><span><%= String(album.files.length).padStart(2, '0') %> pages</span></div>
+                <div class="album-card-body"><p class="eyebrow"><%= new Date(album.createdAt).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }) %></p><h2><%= album.title %></h2><p><%= album.description || 'A LIT digital album.' %></p><a class="btn btn-primary" href="/album/<%= album.id %>">Open album <i class="bi bi-arrow-right"></i></a></div>
+            </article>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
