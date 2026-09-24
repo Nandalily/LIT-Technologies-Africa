@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			announcementRoot.querySelector("[data-announcement-prev]").addEventListener("click", () => show(current - 1));
 			announcementRoot.querySelector("[data-announcement-next]").addEventListener("click", () => show(current + 1));
 			dots.forEach((dot) => dot.addEventListener("click", () => show(Number(dot.dataset.announcementDot))));
-			setInterval(() => show(current + 1), 5500);
+			setInterval(() => show(current + 1), 3200);
 		}
 	}
 });

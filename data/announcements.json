@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "announcement-1790247138264-h2fz36",
+    "title": "mmm",
+    "image": "/uploads/announcements/1790247138249-supply.jpg",
+    "createdAt": "2026-09-24T10:52:18.264Z",
+    "published": true
+  },
+  {
+    "id": "announcement-1790247112357-8vlqj3",
+    "title": "nn",
+    "image": "/uploads/announcements/1790247112347-product-13.jpg",
+    "createdAt": "2026-09-24T10:51:52.357Z",
+    "published": true
+  },
+  {
+    "id": "announcement-1790247020272-zz42hj",
+    "title": "ddd",
+    "image": "/uploads/announcements/1790247020260-framework-align.jpg",
+    "createdAt": "2026-09-24T10:50:20.272Z",
+    "published": true
+  },
+  {
+    "id": "announcement-1790246973632-l462cz",
+    "title": "open",
+    "image": "/uploads/announcements/1790246973623-apply.png",
+    "createdAt": "2026-09-24T10:49:33.632Z",
+    "published": true
+  }
+]
