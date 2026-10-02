@@ -1,1 +1,14 @@
-<section class="signal-rail" aria-label="LIT capabilities"><div class="signal-track"><span>BUILD BETTER</span><i class="bi bi-stars"></i><span>CONNECT FURTHER</span><i class="bi bi-plus-lg"></i><span>LEARN LOUDER</span><i class="bi bi-stars"></i><span>BUILD BETTER</span><i class="bi bi-plus-lg"></i><span>CONNECT FURTHER</span><i class="bi bi-stars"></i><span>LEARN LOUDER</span></div></section>
+<section class="signal-rail" aria-label="Homepage announcements">
+<div class="signal-track">
+<% if (ribbonAnnouncements && ribbonAnnouncements.length) { %>
+<% ribbonAnnouncements.forEach((announcement) => { %>
+<span class="announcement-rail-item"><img src="<%= announcement.image %>" alt=""><strong><%= announcement.title %></strong></span>
+<% }) %>
+<% ribbonAnnouncements.forEach((announcement) => { %>
+<span class="announcement-rail-item" aria-hidden="true"><img src="<%= announcement.image %>" alt=""><strong><%= announcement.title %></strong></span>
+<% }) %>
+<% } else { %>
+<span class="announcement-rail-item"><span class="announcement-rail-placeholder"><i class="bi bi-megaphone"></i></span><strong>Announcements coming soon</strong></span>
+<% } %>
+</div>
+</section>

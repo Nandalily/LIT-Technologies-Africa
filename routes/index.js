@@ -8,13 +8,18 @@ const dataPath = path.join(__dirname, "..", "data", "albums.json");
 const uploadRoot = path.join(__dirname, "..", "public", "uploads", "albums");
 const announcementsPath = path.join(__dirname, "..", "data", "announcements.json");
 const announcementRoot = path.join(__dirname, "..", "public", "uploads", "announcements");
+const ribbonAnnouncementsPath = path.join(__dirname, "..", "data", "ribbon-announcements.json");
+const ribbonAnnouncementRoot = path.join(__dirname, "..", "public", "uploads", "ribbon-announcements");
 fs.mkdirSync(uploadRoot, { recursive: true });
 fs.mkdirSync(announcementRoot, { recursive: true });
+fs.mkdirSync(ribbonAnnouncementRoot, { recursive: true });
 
 const readAlbums = () => JSON.parse(fs.readFileSync(dataPath, "utf8"));
 const writeAlbums = (albums) => fs.writeFileSync(dataPath, JSON.stringify(albums, null, 2));
 const readAnnouncements = () => JSON.parse(fs.readFileSync(announcementsPath, "utf8"));
 const writeAnnouncements = (items) => fs.writeFileSync(announcementsPath, JSON.stringify(items, null, 2));
+const readRibbonAnnouncements = () => JSON.parse(fs.readFileSync(ribbonAnnouncementsPath, "utf8"));
+const writeRibbonAnnouncements = (items) => fs.writeFileSync(ribbonAnnouncementsPath, JSON.stringify(items, null, 2));
 const isAdmin = (req) => req.session && req.session.isAdmin;
 const requireAdmin = (req, res, next) => isAdmin(req) ? next() : res.redirect("/admin/login");
 
@@ -44,6 +49,20 @@ const upload = multer({
 const announcementUpload = multer({
     storage: multer.diskStorage({
         destination: announcementRoot,
+        filename: (req, file, callback) => {
+            const cleanName = file.originalname.toLowerCase().replace(/[^a-z0-9.]+/g, "-");
+            callback(null, `${Date.now()}-${cleanName}`);
+        }
+    }),
+    limits: { fileSize: 10 * 1024 * 1024, files: 12 },
+    fileFilter: (req, file, callback) => {
+        callback(null, ["image/jpeg", "image/png", "image/webp"].includes(file.mimetype));
+    }
+});
+
+const ribbonAnnouncementUpload = multer({
+    storage: multer.diskStorage({
+        destination: ribbonAnnouncementRoot,
         filename: (req, file, callback) => {
             const cleanName = file.originalname.toLowerCase().replace(/[^a-z0-9.]+/g, "-");
             callback(null, `${Date.now()}-${cleanName}`);
@@ -94,7 +113,8 @@ router.get("/", (req, res) => {
     res.render("home/index", {
         title: "LIT Technologies Africa | Build what matters",
         activePage: "home",
-        announcements: readAnnouncements().filter((item) => item.published !== false)
+        announcements: readAnnouncements().filter((item) => item.published !== false),
+        ribbonAnnouncements: readRibbonAnnouncements().filter((item) => item.published !== false)
     });
 });
 
@@ -134,7 +154,7 @@ router.post("/admin/logout", requireAdmin, (req, res) => {
 });
 
 router.get("/admin/albums", requireAdmin, (req, res) => {
-    res.render("admin-albums", { title: "Manage albums | LIT Technologies Africa", albums: readAlbums(), announcements: readAnnouncements(), query: req.query });
+    res.render("admin-albums", { title: "Manage albums | LIT Technologies Africa", albums: readAlbums(), announcements: readAnnouncements(), ribbonAnnouncements: readRibbonAnnouncements(), query: req.query });
 });
 
 router.post("/admin/albums", requireAdmin, upload.array("files", 30), (req, res) => {
@@ -183,6 +203,30 @@ router.post("/admin/announcements/:id/delete", requireAdmin, (req, res) => {
     const item = items.find((announcement) => announcement.id === req.params.id);
     if (item) fs.rmSync(path.join(__dirname, "..", "public", item.image), { force: true });
     writeAnnouncements(items.filter((announcement) => announcement.id !== req.params.id));
+    res.redirect("/admin/albums");
+});
+
+router.post("/admin/ribbon-announcements", requireAdmin, ribbonAnnouncementUpload.array("ribbonAnnouncementFiles", 12), (req, res) => {
+    if (!req.files || req.files.length === 0) return res.status(400).send("Please choose at least one ribbon announcement image.");
+    const items = readRibbonAnnouncements();
+    req.files.reverse().forEach((file) => {
+        items.unshift({
+            id: `ribbon-announcement-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+            title: (req.body.ribbonAnnouncementTitle || "LIT ribbon announcement").trim(),
+            image: `/uploads/ribbon-announcements/${file.filename}`,
+            createdAt: new Date().toISOString(),
+            published: true
+        });
+    });
+    writeRibbonAnnouncements(items);
+    res.redirect(`/admin/albums?saved=${encodeURIComponent("Ribbon announcements")}`);
+});
+
+router.post("/admin/ribbon-announcements/:id/delete", requireAdmin, (req, res) => {
+    const items = readRibbonAnnouncements();
+    const item = items.find((announcement) => announcement.id === req.params.id);
+    if (item && item.image.startsWith("/uploads/ribbon-announcements/")) fs.rmSync(path.join(__dirname, "..", "public", item.image), { force: true });
+    writeRibbonAnnouncements(items.filter((item) => item.id !== req.params.id));
     res.redirect("/admin/albums");
 });
 

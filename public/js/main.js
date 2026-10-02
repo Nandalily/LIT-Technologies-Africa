@@ -36,4 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
 			setInterval(() => show(current + 1), 3200);
 		}
 	}
+
+	const heroSlideshow = document.querySelector("[data-hero-slideshow]");
+	if (heroSlideshow) {
+		const heroSlides = [...heroSlideshow.querySelectorAll("[data-hero-slide]")];
+		let heroIndex = 0;
+		if (heroSlides.length > 1) {
+			setInterval(() => {
+				heroSlides[heroIndex].classList.remove("is-active");
+				heroIndex = (heroIndex + 1) % heroSlides.length;
+				heroSlides[heroIndex].classList.add("is-active");
+			}, 4500);
+		}
+	}
 });

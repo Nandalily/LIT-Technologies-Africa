@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "album-1790884663831",
+    "title": "lit",
+    "description": "yeah",
+    "createdAt": "2026-10-01T19:57:43.854Z",
+    "published": true,
+    "files": [
+      {
+        "name": "SignBridge Engineering Research Proposal.pdf",
+        "url": "/uploads/albums/album-1790884663831/1790884663832-signbridge-engineering-research-proposal.pdf",
+        "type": "application/pdf"
+      }
+    ]
+  }
+]
