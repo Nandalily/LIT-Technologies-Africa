@@ -24,6 +24,26 @@
     </div>
 </section>
 
+<% if (service.accent === "school") { %>
+<section class="school-courses">
+    <div class="container">
+        <div class="school-courses-heading"><div><p class="eyebrow">Choose your course</p><h2>Build your next skill.</h2></div><p>Practical tech courses designed to help you learn, build, and move forward.</p></div>
+        <div class="school-course-grid">
+            <% service.courses.forEach((course, index) => { %>
+            <article class="school-course-card">
+                <span class="school-course-number">0<%= index + 1 %></span>
+                <i class="bi <%= course.icon %>"></i>
+                <h3><%= course.title %></h3>
+                <p><%= course.description %></p>
+                <a class="school-enroll" href="/contact">Enroll now <i class="bi bi-arrow-up-right"></i></a>
+            </article>
+            <% }) %>
+        </div>
+        <div class="school-image"><img src="/images/litschool.png" alt="LIT School students learning together"></div>
+    </div>
+</section>
+<% } %>
+
 <section class="service-detail">
     <div class="container">
         <div class="row g-5">

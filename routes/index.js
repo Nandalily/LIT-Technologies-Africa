@@ -97,7 +97,14 @@ const services = {
         description: "Practical, mentor-led programs for students, teams, and career switchers. Learn by building, ship a portfolio, and leave with a clearer next move.",
         icon: "bi-mortarboard-fill",
         accent: "school",
-        features: ["Software engineering and web development", "AI productivity and data literacy", "Cybersecurity and cloud fundamentals", "Career coaching and industry mentorship"]
+        features: ["Software engineering and web development", "AI productivity and data literacy", "Cybersecurity and cloud fundamentals", "Career coaching and industry mentorship"],
+        courses: [
+            { title: "Web Development", icon: "bi-code-slash", description: "Build responsive websites and modern web apps." },
+            { title: "Data & AI", icon: "bi-bar-chart-line", description: "Turn data into useful decisions and products." },
+            { title: "Cybersecurity", icon: "bi-shield-lock", description: "Learn the foundations of safer digital systems." },
+            { title: "Cloud Computing", icon: "bi-cloud-check", description: "Understand and deploy the cloud with confidence." },
+            { title: "Digital Design", icon: "bi-bezier2", description: "Design clear, useful experiences people enjoy." }
+        ]
     },
     hotspot: {
         eyebrow: "LIT Connect",
@@ -117,6 +124,8 @@ router.get("/", (req, res) => {
         ribbonAnnouncements: readRibbonAnnouncements().filter((item) => item.published !== false)
     });
 });
+
+router.get("/about", (req, res) => res.render("about", { title: "About LIT Technologies Africa", activePage: "about" }));
 
 router.get("/services", (req, res) => res.render("service", { title: "Technology Services | LIT Technologies Africa", activePage: "services", service: services.services }));
 router.get("/hosting", (req, res) => res.render("service", { title: "Managed Hosting | LIT Technologies Africa", activePage: "hosting", service: services.hosting }));
