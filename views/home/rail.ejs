@@ -2,10 +2,10 @@
 <div class="signal-track">
 <% if (ribbonAnnouncements && ribbonAnnouncements.length) { %>
 <% ribbonAnnouncements.forEach((announcement) => { %>
-<span class="announcement-rail-item"><img src="<%= announcement.image %>" alt=""><strong><%= announcement.title %></strong></span>
+<a class="announcement-rail-item" href="/events#<%= announcement.id %>"><img src="<%= announcement.image %>" alt=""><strong><%= announcement.title %></strong></a>
 <% }) %>
 <% ribbonAnnouncements.forEach((announcement) => { %>
-<span class="announcement-rail-item" aria-hidden="true"><img src="<%= announcement.image %>" alt=""><strong><%= announcement.title %></strong></span>
+<a class="announcement-rail-item" href="/events#<%= announcement.id %>" aria-hidden="true" tabindex="-1"><img src="<%= announcement.image %>" alt=""><strong><%= announcement.title %></strong></a>
 <% }) %>
 <% } else { %>
 <span class="announcement-rail-item"><span class="announcement-rail-placeholder"><i class="bi bi-megaphone"></i></span><strong>Announcements coming soon</strong></span>

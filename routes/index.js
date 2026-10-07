@@ -191,6 +191,24 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/events", (req, res) => {
+    const announcements = readAnnouncements()
+        .filter((item) => item.published !== false)
+        .map((item) => ({ ...item, kind: "Featured event", description: "Discover the latest opportunity, programme, or community moment from LIT Technologies Africa." }));
+    const ribbonAnnouncements = readRibbonAnnouncements()
+        .filter((item) => item.published !== false)
+        .map((item) => ({ ...item, kind: "Community update", description: "Stay close to what is happening at LIT. Follow this update for the latest details and ways to get involved." }));
+    const events = [...announcements, ...ribbonAnnouncements]
+        .filter((item, index, items) => items.findIndex((candidate) => candidate.id === item.id) === index)
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+    res.render("events", {
+        title: "Events & Updates | LIT Technologies Africa",
+        activePage: "events",
+        events
+    });
+});
+
 router.get("/about", (req, res) => res.render("about", { title: "About LIT Technologies Africa", activePage: "about" }));
 
 router.get("/services", (req, res) => res.render("service", { title: "Technology Services | LIT Technologies Africa", activePage: "services", service: services.services }));

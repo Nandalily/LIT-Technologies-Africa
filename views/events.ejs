@@ -1,0 +1,44 @@
+<section class="events-page">
+    <div class="container">
+        <div class="events-page-heading" data-reveal>
+            <p class="eyebrow">LIT community calendar</p>
+            <h1>Ideas worth showing up for.</h1>
+            <p>Explore the events, programmes, and announcements currently moving through the LIT community.</p>
+        </div>
+
+        <% if (events.length) { %>
+        <div class="events-grid">
+            <% events.forEach((event) => { %>
+            <article class="event-detail-card" id="<%= event.id %>" data-reveal>
+                <div class="event-detail-image">
+                    <img src="<%= event.image %>" alt="<%= event.title %>">
+                    <span><%= event.kind %></span>
+                </div>
+                <div class="event-detail-content">
+                    <p class="event-detail-date"><i class="bi bi-calendar3"></i> <%= new Date(event.createdAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) %></p>
+                    <h2><%= event.title %></h2>
+                    <p><%= event.description %></p>
+                    <a class="text-link" href="mailto:hello@litafrica.org?subject=<%= encodeURIComponent(event.title) %>">Ask about this event <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+            </article>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <div class="events-empty">
+            <i class="bi bi-calendar2-event"></i>
+            <h2>New events are on the way.</h2>
+            <p>Check back soon for the next LIT gathering, programme, or community update.</p>
+        </div>
+        <% } %>
+    </div>
+</section>
+
+<section class="events-cta">
+    <div class="container">
+        <div>
+            <p class="eyebrow">Stay in the loop</p>
+            <h2>Bring your curiosity. We will bring the room.</h2>
+        </div>
+        <a class="btn btn-primary" href="/contact">Talk to LIT <i class="bi bi-arrow-right"></i></a>
+    </div>
+</section>
