@@ -75,7 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		albumCreator.addEventListener("submit", async (event) => {
 			event.preventDefault();
 			const submit = albumCreator.querySelector('button[type="submit"]');
-			if (!imageInput.files.length) return;
+			if (!imageInput.files.length) {
+				status.textContent = "Choose at least one image before creating your album.";
+				imageInput.closest(".builder-drop").focus();
+				return;
+			}
+			if (!albumCreator.elements.title.value.trim()) {
+				status.textContent = "Add a title for your album before creating it.";
+				albumCreator.elements.title.focus();
+				return;
+			}
 			submit.disabled = true;
 			status.textContent = "Creating your album...";
 			try {

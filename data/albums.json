@@ -1,5 +1,80 @@
 [
   {
+    "id": "album-1791371549205",
+    "title": "cc",
+    "description": "cc",
+    "createdAt": "2026-10-07T11:12:29.224Z",
+    "published": true,
+    "files": [
+      {
+        "name": "flip 1.jpg",
+        "url": "/uploads/albums/album-1791371549205/1791371549207-flip-1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 2.jpg",
+        "url": "/uploads/albums/album-1791371549205/1791371549211-flip-2.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 3.jpg",
+        "url": "/uploads/albums/album-1791371549205/1791371549215-flip-3.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 4.jpg",
+        "url": "/uploads/albums/album-1791371549205/1791371549216-flip-4.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 5.jpg",
+        "url": "/uploads/albums/album-1791371549205/1791371549219-flip-5.jpg",
+        "type": "image/jpeg"
+      }
+    ]
+  },
+  {
+    "id": "created-1791371490165-161txs",
+    "title": "my rescella",
+    "description": "Created with LIT Digital Albums.",
+    "createdAt": "2026-10-07T11:11:30.187Z",
+    "published": true,
+    "creator": true,
+    "ownerSession": "72UH0gHQhrs9TmC7n06zRTJktbMaZbY4",
+    "files": [
+      {
+        "name": "flip 1.jpg",
+        "url": "/uploads/albums/created/created-1791371490165-161txs/1791371490167-flip-1.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371490165-161txs\\1791371490167-flip-1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 2.jpg",
+        "url": "/uploads/albums/created/created-1791371490165-161txs/1791371490171-flip-2.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371490165-161txs\\1791371490171-flip-2.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 3.jpg",
+        "url": "/uploads/albums/created/created-1791371490165-161txs/1791371490174-flip-3.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371490165-161txs\\1791371490174-flip-3.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 4.jpg",
+        "url": "/uploads/albums/created/created-1791371490165-161txs/1791371490175-flip-4.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371490165-161txs\\1791371490175-flip-4.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "flip 5.jpg",
+        "url": "/uploads/albums/created/created-1791371490165-161txs/1791371490180-flip-5.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371490165-161txs\\1791371490180-flip-5.jpg",
+        "type": "image/jpeg"
+      }
+    ]
+  },
+  {
     "id": "created-1791371148214-h4y4w8",
     "title": "my rescella",
     "description": "Created with LIT Digital Albums.",
