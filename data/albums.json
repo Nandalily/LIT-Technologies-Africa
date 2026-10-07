@@ -1,5 +1,46 @@
 [
   {
+    "id": "created-1791369020474-qlw0bi",
+    "title": "my rescella",
+    "description": "Created with LIT Digital Albums.",
+    "createdAt": "2026-10-07T10:30:20.504Z",
+    "published": true,
+    "creator": true,
+    "ownerSession": "4YtYA5GQ9N3OEDbblewfU-3gM-lJ8SZ8",
+    "files": [
+      {
+        "name": "framework.jpg",
+        "url": "/uploads/albums/created/created-1791369020474-qlw0bi/1791369020476-framework.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791369020474-qlw0bi\\1791369020476-framework.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "framework-align.jpg",
+        "url": "/uploads/albums/created/created-1791369020474-qlw0bi/1791369020478-framework-align.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791369020474-qlw0bi\\1791369020478-framework-align.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "hero 1.jpg",
+        "url": "/uploads/albums/created/created-1791369020474-qlw0bi/1791369020481-hero-1.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791369020474-qlw0bi\\1791369020481-hero-1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "image 1.png",
+        "url": "/uploads/albums/created/created-1791369020474-qlw0bi/1791369020482-image-1.png",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791369020474-qlw0bi\\1791369020482-image-1.png",
+        "type": "image/png"
+      },
+      {
+        "name": "image3.png",
+        "url": "/uploads/albums/created/created-1791369020474-qlw0bi/1791369020492-image3.png",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791369020474-qlw0bi\\1791369020492-image3.png",
+        "type": "image/png"
+      }
+    ]
+  },
+  {
     "id": "album-1790884663831",
     "title": "lit",
     "description": "yeah",

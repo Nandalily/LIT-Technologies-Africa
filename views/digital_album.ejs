@@ -1,0 +1,93 @@
+<section class="digital-album-page">
+    <div class="container">
+        <div class="digital-album-hero">
+            <div class="digital-album-hero-copy">
+                <p class="digital-album-eyebrow">Digital albums</p>
+                <h1>Your Stories.<br><span>Beautifully<br>Published.</span></h1>
+                <p class="digital-album-lead">Turn your photos and memories into interactive digital albums. Create, customise and share stunning flipbooks with the LIT touch — professional, modern and uniquely yours.</p>
+                <div class="digital-album-hero-actions"><a class="btn btn-primary" href="#create-album">Create Your Album <i class="bi bi-arrow-right"></i></a><a class="digital-album-outline-btn" href="#archive"><i class="bi bi-play-circle"></i> View Sample Album</a></div>
+            </div>
+            <div class="digital-album-flipbook" data-flipbook aria-label="Interactive digital album">
+                <div class="flipbook-pages" aria-hidden="true">
+                    <% (files.length ? files : [{ name: "LIT Digital Album", type: "cover" }]).forEach((file, index) => { %>
+                        <div class="flip-source" data-page-index="<%= index %>">
+                            <% if (file.type === "cover") { %>
+                                <div class="flip-cover"><span class="flip-cover-mark">LIT</span><strong>Stories<br>worth<br>remembering.</strong><small>INNOVATE · BUILD · GROW</small></div>
+                            <% } else if (file.type === "application/pdf") { %>
+                                <div class="flip-pdf-cover"><i class="bi bi-file-earmark-pdf"></i><span>PDF</span></div>
+                            <% } else { %>
+                                <img src="<%= file.url %>" alt="<%= file.name %>">
+                            <% } %>
+                            <span class="flip-page-number"><%= String(index + 1).padStart(2, "0") %></span>
+                        </div>
+                    <% }) %>
+                </div>
+                <div class="flipbook-spread">
+                    <button class="flipbook-arrow flipbook-prev" type="button" data-flip-prev aria-label="Previous pages"><i class="bi bi-chevron-left"></i></button>
+                    <div class="flip-page flip-page-left" data-flip-left></div>
+                    <div class="flip-page flip-page-right" data-flip-right></div>
+                    <button class="flipbook-arrow flipbook-next" type="button" data-flip-next aria-label="Next pages"><i class="bi bi-chevron-right"></i></button>
+                    <span class="flipbook-seam" aria-hidden="true"></span>
+                </div>
+                <div class="flipbook-footer"><span data-flip-status>Pages 01–02</span><span><i class="bi bi-volume-up-fill"></i> Sound on <i class="bi bi-arrows-fullscreen ms-2"></i></span></div>
+                <div class="flipbook-rail" data-flip-rail aria-label="Album pages"></div>
+            </div>
+        </div>
+
+        <div class="digital-album-feature-strip">
+            <span><i class="bi bi-images"></i> Your photos</span><span><i class="bi bi-book"></i> Interactive flipbooks</span><span><i class="bi bi-patch-check"></i> LIT tech branding</span><span><i class="bi bi-share"></i> Download & share</span><span><i class="bi bi-shield-check"></i> Secure & private</span>
+        </div>
+
+        <% if (typeof query !== "undefined" && query.subscription === "success") { %>
+            <div class="alert alert-success" role="status">Your subscription is active. You can download the full archive.</div>
+        <% } else if (typeof query !== "undefined" && query.subscription === "failed") { %>
+            <div class="alert alert-warning" role="alert">We could not verify that payment. Please try again or contact the LIT team.</div>
+        <% } %>
+
+        <section class="digital-album-benefits">
+            <div class="digital-album-benefit-copy"><p class="digital-album-eyebrow">Why choose our digital albums?</p><h2>More Than Just Photos.<br><span>It's an Experience.</span></h2><p>Create stunning, interactive albums that tell your story in the most engaging way possible.</p><em>Turn moments<br>into lasting<br>memories.</em></div>
+            <div class="digital-album-benefit-grid"><article><i class="bi bi-images"></i><h3>Free Sample Creation</h3><p>Create a free album with up to 5 images.</p></article><article><i class="bi bi-crown"></i><h3>Flexible Plans</h3><p>Upgrade to add 20–30+ images and more features.</p></article><article><i class="bi bi-patch-check"></i><h3>LIT Tech Branding</h3><p>Your album will be branded with LIT Technologies Africa.</p></article><article><i class="bi bi-cloud-arrow-down"></i><h3>Download & Share</h3><p>Let people view or download your album easily.</p></article><article><i class="bi bi-music-note-beamed"></i><h3>Page-Turn Sound</h3><p>Enjoy a realistic book flipping sound.</p></article></div>
+        </section>
+
+        <section class="digital-album-steps" id="create-album">
+            <div><p class="digital-album-eyebrow">Simple & easy</p><h2>Create Your Digital Album<br>in 3 Simple Steps</h2><p> No technical skills needed. Just your photos, our technology, and a few clicks.</p><div class="digital-step-grid"><div><b>1</b><i class="bi bi-images"></i><h3>Upload</h3><p>Select up to 5 images for your free album (or more with a subscription).</p></div><div><b>2</b><i class="bi bi-palette"></i><h3>Design</h3><p>Choose a theme, add your title and customise your album.</p></div><div><b>3</b><i class="bi bi-share"></i><h3>Publish</h3><p>Get your interactive album and share it with the world.</p></div></div></div>
+            <form class="album-builder-mock" data-album-create-form data-max-images="<%= isSubscribed ? paidLimit : freeLimit %>" enctype="multipart/form-data"><div class="builder-tabs"><strong>Create Album</strong><span>My Albums</span></div><label class="builder-drop" for="album-images"><i class="bi bi-cloud-arrow-up"></i><strong>Drag & drop your images here</strong><small>or click to browse<br>Max 5 images (Free) · 30 subscribed</small><input id="album-images" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple required></label><input class="builder-title" name="title" type="text" placeholder="Give your album a title" maxlength="120" required><div class="builder-thumbs" data-builder-thumbs></div><button class="btn btn-primary" type="submit">Create My Album <i class="bi bi-arrow-right"></i></button><p class="builder-status" data-builder-status role="status"></p></form>
+        </section>
+
+        <section class="digital-album-pricing" id="archive">
+            <div class="digital-album-pricing-intro"><p class="digital-album-eyebrow">Simple pricing</p><h2>Choose Your Plan</h2><p>Start with a free album. Upgrade anytime for more images and advanced features.</p><a href="#plans">View All Features <i class="bi bi-arrow-right"></i></a></div>
+            <article class="album-price-card"><p>Free album</p><small>Up to 5 images</small><h3>FREE</h3><ul><li>Up to 5 images</li><li>LIT branding</li><li>Interactive flipbook</li><li>Page-turn sound</li><li>Download (limited)</li></ul><a href="/contact">Create Free Album <i class="bi bi-arrow-right"></i></a></article>
+            <article class="album-price-card album-price-popular"><span>Most popular</span><p>Pro album</p><small>20 – 30+ images</small><h3>UGX 50,000<small>/album</small></h3><ul><li>20 – 30+ images</li><li>LIT branding</li><li>Interactive flipbook</li><li>Page-turn sound</li><li>Download & share</li></ul><% if (!isSubscribed) { %><button type="button" data-subscribe>Subscribe Now <i class="bi bi-arrow-right"></i></button><% } else { %><a href="#archive">Full access active</a><% } %></article>
+            <div class="album-price-note"><h3>Perfect for:</h3><ul><li>Personal memories</li><li>Events & celebrations</li><li>Business portfolios</li><li>Schools & organisations</li><li>Marketing materials</li></ul></div>
+        </section>
+
+        <section class="digital-album-library">
+            <div class="digital-album-toolbar" id="plans"><div><p class="digital-album-eyebrow">Your collection <span data-album-count><%= files.length %></span> pages</p><h2>Browse the archive</h2></div><div class="album-library-actions"><% if (isSubscribed) { %><a class="btn btn-primary" href="<%= files.find((file) => file.albumId && albums.find((album) => album.id === file.albumId && album.creator)) ? `/albums/${files.find((file) => file.albumId && albums.find((album) => album.id === file.albumId && album.creator)).albumId}/download` : '#plans' %>">Download album ZIP <i class="bi bi-download"></i></a><% } else { %><button class="btn btn-primary" type="button" data-subscribe>Unlock full access <i class="bi bi-arrow-up-right"></i></button><% } %></div></div>
+            <% if (!files.length) { %><div class="empty-album"><i class="bi bi-images"></i><h2>The first story is on its way.</h2><p>Check back soon for LIT albums and publications.</p></div><% } else { %><div class="digital-album-grid">
+                <% files.forEach((file, index) => { %>
+                    <article class="digital-album-card <%= !isSubscribed && index >= freeLimit ? 'is-locked' : '' %>">
+                        <div class="digital-album-preview">
+                            <% if (file.type === "application/pdf") { %>
+                                <i class="bi bi-file-earmark-pdf"></i>
+                            <% } else { %>
+                                <img src="<%= file.url %>" alt="<%= file.name %>" loading="lazy">
+                            <% } %>
+                            <% if (!isSubscribed && index >= freeLimit) { %><span class="locked-label"><i class="bi bi-lock-fill"></i> Subscriber only</span><% } %>
+                            <span class="page-label">Page <%= String(index + 1).padStart(2, "0") %></span>
+                        </div>
+                        <div class="digital-album-card-body">
+                            <p class="eyebrow"><%= file.albumTitle %></p>
+                            <h3><%= file.name %></h3>
+                            <% if (!isSubscribed && index >= freeLimit) { %>
+                                <button class="text-link digital-album-lock-button" type="button" data-subscribe>Unlock to download <i class="bi bi-lock"></i></button>
+                            <% } else { %>
+                                <% if (isSubscribed && file.albumId && albums.find((album) => album.id === file.albumId && album.creator)) { %><a class="text-link" href="/albums/<%= file.albumId %>/files/<%= file.fileIndex %>">Download page <i class="bi bi-download"></i></a><% } else { %><span class="text-link digital-album-preview-only"><i class="bi bi-eye"></i> Preview only</span><% } %>
+                            <% } %>
+                        </div>
+                    </article>
+                <% }) %>
+            </div><% } %>
+        </section>
+        <section class="digital-album-final-cta"><div><p class="digital-album-eyebrow">Let's get started</p><h2>Ready to Create Your Digital Album?</h2><p>Turn your photos into a beautiful, interactive story with LIT Technologies Africa.</p></div><a class="btn btn-primary" href="#create-album">Create Your Album <i class="bi bi-arrow-right"></i></a><a class="digital-album-outline-btn" href="/contact">Talk to an Expert</a></section>
+    </div>
+</section>

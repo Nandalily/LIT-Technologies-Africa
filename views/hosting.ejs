@@ -1,0 +1,51 @@
+<section class="hosting-page">
+    <div class="hosting-container">
+        <div class="hosting-hero">
+            <div class="hosting-hero-copy">
+                <p class="hosting-eyebrow">Web hosting & deployment services</p>
+                <h1>Your Website.<br><span>Live. Secure.</span> Always.</h1>
+                <p>Get your domain, reliable hosting, and seamless deployment with LIT Technologies Africa. We provide secure, high-performance infrastructure to keep your website online and your business growing.</p>
+                <form class="domain-search" action="/contact" method="get">
+                    <i class="bi bi-globe2"></i><input name="domain" type="text" placeholder="Find your perfect domain name" aria-label="Domain name"><button type="submit">Search Domain <i class="bi bi-arrow-right"></i></button>
+                </form>
+                <div class="domain-extensions">Popular extensions: <span>.com</span><span>.ug</span><span>.org</span><span>.net</span><span>.co</span></div>
+            </div>
+            <div class="hosting-hero-art" aria-label="Secure cloud hosting illustration">
+                <div class="server-stack"><i class="bi bi-server"></i><i class="bi bi-server"></i><i class="bi bi-server"></i></div>
+                <div class="hosting-cloud"><i class="bi bi-cloud-arrow-up"></i></div>
+                <div class="hosting-screen"><strong>www.yourdomain.com</strong><span><i class="bi bi-check-circle-fill"></i> Secure</span></div>
+            </div>
+        </div>
+
+        <div class="hosting-trustbar">
+            <div><i class="bi bi-shield-check"></i><strong>Free SSL Certificate</strong><small>Keep your site and data secure</small></div>
+            <div><i class="bi bi-clock"></i><strong>99.9% Uptime</strong><small>Your site, always online</small></div>
+            <div><i class="bi bi-database"></i><strong>Daily Backups</strong><small>Never lose your data</small></div>
+            <div><i class="bi bi-headset"></i><strong>24/7 Support</strong><small>We're here when you need us</small></div>
+        </div>
+
+        <section class="hosting-section">
+            <p class="hosting-eyebrow">Our hosting services</p><h2>Everything You Need to Get Online</h2><p class="hosting-muted">From domain registration to production deployment, we offer complete hosting and infrastructure solutions for individuals, businesses and organizations.</p>
+            <div class="hosting-service-grid">
+                <% hosting.services.forEach((item) => { %><article class="hosting-service-card"><i class="bi <%= item.icon %>"></i><h3><%= item.title %></h3><p><%= item.description %></p><a href="/contact">Learn More <i class="bi bi-arrow-right"></i></a></article><% }) %>
+            </div>
+        </section>
+
+        <section class="hosting-section hosting-pricing">
+            <div class="hosting-section-heading"><div><p class="hosting-eyebrow">Hosting plans</p><h2>Simple, Transparent Pricing</h2><p class="hosting-muted">Choose the plan that fits your needs. Upgrade anytime as you grow.</p></div><div class="billing-toggle"><strong>Monthly</strong><span>Yearly</span><b>Save 20%</b></div></div>
+            <div class="hosting-plan-grid">
+                <% hosting.plans.forEach((plan) => { %><article class="hosting-plan <%= plan.popular ? 'is-popular' : '' %>"><% if (plan.popular) { %><span class="popular-tag">Most Popular</span><% } %><h3><%= plan.name %></h3><p><%= plan.description %></p><div class="hosting-price">UGX <strong><%= plan.price %></strong><small>/month</small></div><ul><% plan.features.forEach((feature) => { %><li><i class="bi bi-check2"></i><%= feature %></li><% }) %></ul><a href="/contact" class="hosting-plan-button">Get Started</a></article><% }) %>
+            </div>
+        </section>
+
+        <section class="hosting-section deployment-section">
+            <p class="hosting-eyebrow">Deployment & infrastructure</p><h2>From Domain to Live</h2><p class="hosting-muted">A simple, secure and reliable deployment process for your website or application.</p>
+            <div class="deployment-flow"><% hosting.deployment.forEach((item, index) => { %><div class="deployment-step"><span><i class="bi <%= item.icon %>"></i></span><h3><%= item.title %></h3><p><%= item.description %></p></div><% if (index < hosting.deployment.length - 1) { %><i class="bi bi-arrow-right deployment-arrow"></i><% } %><% }) %></div>
+            <p class="hosting-eyebrow technology-label">Technologies we support</p><div class="technology-list"><% hosting.technologies.forEach((technology) => { %><span><i class="bi <%= technology.icon %>"></i><%= technology.name %></span><% }) %></div>
+        </section>
+
+        <section class="hosting-section extras-section"><p class="hosting-eyebrow">Additional hosting & deployment services</p><h2>More than just hosting — we provide the tools and support you need to succeed.</h2><div class="extras-grid"><% hosting.extras.forEach((item) => { %><div><i class="bi <%= item.icon %>"></i><span><strong><%= item.title %></strong><small><%= item.description %></small></span></div><% }) %></div></section>
+
+        <section class="hosting-cta"><div><i class="bi bi-globe2"></i><div><h2>Let's get your website online</h2><p>Whether you're starting a blog, launching a business or scaling your application, we're here to help. Get started today and bring your ideas to life.</p></div></div><a href="/contact">Start Hosting <i class="bi bi-arrow-right"></i></a><a class="hosting-cta-outline" href="/contact">Talk to an Expert</a></section>
+    </div>
+</section>
