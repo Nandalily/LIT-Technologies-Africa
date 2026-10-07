@@ -13,7 +13,7 @@
 .flipbook-spread[data-pos="end"]{--w:min(var(--closed-w),var(--maxw));width:var(--w);margin-left:calc(50cqw - .25 * var(--w))}
 .flipbook-spread[data-pos="mid"]{--w:min(var(--open-w),var(--maxw));width:var(--w);margin-left:calc((100cqw - var(--w)) / 2)}
 .flipbook-spread:not([data-pos="mid"]) .flipbook-seam{opacity:0}
-.flip-stage{position:absolute;inset:0;perspective:2600px;--shade:0;pointer-events:none}
+.flip-stage{position:absolute;inset:0;--shade:0;pointer-events:none}
 .flip-page,.flip-leaf{pointer-events:auto}
 
 .flip-page{position:absolute;top:0;width:50%;height:100%;background:var(--paper);overflow:hidden;
@@ -26,25 +26,29 @@
 
 .flip-face{position:absolute;inset:0;background:var(--paper)}
 .flip-face img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;-webkit-user-drag:none}
-.flip-face>.flip-cover,.flip-face>.flip-pdf-cover{position:absolute;inset:0}
+.flip-face>.flip-cover,.flip-face>.flip-pdf-cover,.flip-face>.flip-blank{position:absolute;inset:0}
 
-/* spine shading, plus a shadow cast by the turning leaf */
+/* spine shading + a faint ambient shadow while a page is in the air */
 .flip-page::after,.flip-page::before{content:"";position:absolute;inset:0;pointer-events:none}
 .flip-page-right::after{background:linear-gradient(90deg,rgba(0,0,0,.26),transparent 12%)}
 .flip-page-left::after{background:linear-gradient(270deg,rgba(0,0,0,.26),transparent 12%)}
-.flip-page::before{z-index:2;opacity:calc(var(--shade) * .6)}
+.flip-page::before{z-index:2;opacity:calc(var(--shade) * .3)}
 .flip-page-right::before{background:linear-gradient(90deg,rgba(0,0,0,.5),transparent 65%)}
 .flip-page-left::before{background:linear-gradient(270deg,rgba(0,0,0,.5),transparent 65%)}
 
-.flip-leaf{position:absolute;left:50%;top:0;width:50%;height:100%;z-index:4;
-  transform-origin:left center;transform-style:preserve-3d;will-change:transform}
-.flip-leaf-front,.flip-leaf-back{position:absolute;inset:0;overflow:hidden;background:var(--paper);
-  backface-visibility:hidden;-webkit-backface-visibility:hidden}
+/* ---- the turning sheet: flat part + curled flap (positions are set from JS every frame) ---- */
+.flip-leaf{position:absolute;left:50%;top:0;width:50%;height:100%;z-index:4}
+.flip-cast{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.flip-leaf-front,.flip-leaf-back{position:absolute;left:0;top:0;width:100%;height:100%;background:var(--paper);overflow:hidden}
 .flip-leaf-front{border-radius:0 6px 6px 0}
-.flip-leaf-back{border-radius:6px 0 0 6px;transform:rotateY(180deg)}
-.flip-leaf-front::after,.flip-leaf-back::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--shade)}
-.flip-leaf-front::after{background:linear-gradient(90deg,rgba(0,0,0,.04),rgba(0,0,0,.45))}
-.flip-leaf-back::after{background:linear-gradient(270deg,rgba(0,0,0,.04),rgba(0,0,0,.45))}
+.flip-leaf-front::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.26),transparent 12%)}
+.flip-leaf-back{transform-origin:0 0}
+.flip-flap{position:absolute;inset:0;pointer-events:none;filter:drop-shadow(-6px 5px 10px rgba(0,0,0,.34))}
+.flip-flap-clip{position:absolute;inset:0}
+.flip-strip{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
+.flip-strip-cast{background:linear-gradient(90deg,rgba(0,0,0,0),rgba(0,0,0,.42))}
+.flip-strip-flap{background:linear-gradient(90deg,rgba(0,0,0,.34) 0,rgba(255,255,255,.32) 24%,rgba(0,0,0,.1) 62%,rgba(0,0,0,0) 100%)}
 
 .flipbook-seam{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);z-index:6;
   pointer-events:none;background:linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.1));transition:opacity .4s}
