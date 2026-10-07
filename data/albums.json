@@ -1,5 +1,46 @@
 [
   {
+    "id": "created-1791371148214-h4y4w8",
+    "title": "my rescella",
+    "description": "Created with LIT Digital Albums.",
+    "createdAt": "2026-10-07T11:05:48.255Z",
+    "published": true,
+    "creator": true,
+    "ownerSession": "4xcSiPHM_0FBC-tfrRtDFQB3eDpLiFjB",
+    "files": [
+      {
+        "name": "framework.jpg",
+        "url": "/uploads/albums/created/created-1791371148214-h4y4w8/1791371148218-framework.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371148214-h4y4w8\\1791371148218-framework.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "framework-align.jpg",
+        "url": "/uploads/albums/created/created-1791371148214-h4y4w8/1791371148219-framework-align.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371148214-h4y4w8\\1791371148219-framework-align.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "hero 1.jpg",
+        "url": "/uploads/albums/created/created-1791371148214-h4y4w8/1791371148223-hero-1.jpg",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371148214-h4y4w8\\1791371148223-hero-1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "name": "image 1.png",
+        "url": "/uploads/albums/created/created-1791371148214-h4y4w8/1791371148223-image-1.png",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371148214-h4y4w8\\1791371148223-image-1.png",
+        "type": "image/png"
+      },
+      {
+        "name": "image3.png",
+        "url": "/uploads/albums/created/created-1791371148214-h4y4w8/1791371148238-image3.png",
+        "path": "C:\\Users\\Asus\\LIT-Technologies-Africa\\public\\uploads\\albums\\created\\created-1791371148214-h4y4w8\\1791371148238-image3.png",
+        "type": "image/png"
+      }
+    ]
+  },
+  {
     "id": "created-1791369020474-qlw0bi",
     "title": "my rescella",
     "description": "Created with LIT Digital Albums.",
