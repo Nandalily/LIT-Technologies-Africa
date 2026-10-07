@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav reference-nav <%= activePage === 'hosting' ? 'hosting-nav' : '' %>">
+<% const currentPage = typeof activePage === "string" ? activePage : ""; %>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top site-nav reference-nav <%= currentPage === 'hosting' ? 'hosting-nav' : '' %>">
 <div class="container">
 <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/">
 <img src="/images/Lit Logo.png" alt="LIT logo" class="brand-mark">
@@ -7,8 +8,8 @@
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="navbar">
 <ul class="navbar-nav ms-auto align-items-lg-center">
-<li class="nav-item"><a class="nav-link <%= activePage === 'home' ? 'active' : '' %>" href="/">Home</a></li>
-<li class="nav-item"><a class="nav-link <%= activePage === 'about' ? 'active' : '' %>" href="/about">About</a></li>
+<li class="nav-item"><a class="nav-link <%= currentPage === 'home' ? 'active' : '' %>" href="/">Home</a></li>
+<li class="nav-item"><a class="nav-link <%= currentPage === 'about' ? 'active' : '' %>" href="/about">About</a></li>
 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/services" role="button" data-bs-toggle="dropdown">Services</a><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/services">All services</a></li><li><a class="dropdown-item" href="/hosting">Web solutions</a></li><li><a class="dropdown-item" href="/hotspot">Hotspot systems</a></li></ul></li>
 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="/#programs" role="button" data-bs-toggle="dropdown">Programs</a><ul class="dropdown-menu dropdown-menu-dark"><li><a class="dropdown-item" href="/#programs">All programs</a></li><li><a class="dropdown-item" href="/school">LIT School</a></li></ul></li>
 <li class="nav-item"><a class="nav-link" href="/#events">Events</a></li>
