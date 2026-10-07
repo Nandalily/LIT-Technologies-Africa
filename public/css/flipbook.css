@@ -1,0 +1,21 @@
+.digital-album-flipbook { --paper: #fbf8f1; --ink: #12305a; --accent: #f2542d; min-width: 0; outline: none; }
+.digital-album-flipbook .flipbook-pages { display: none; }
+.flipbook-spread { display: grid; grid-template-columns: 42px 1fr 1fr 42px; position: relative; min-height: 305px; padding: 18px 0; filter: drop-shadow(0 22px 18px rgba(16,42,36,.18)); }
+.flip-page { position: relative; overflow: hidden; min-height: 265px; background: var(--paper); border: 1px solid #d7d2c2; user-select: none; }
+.flip-page-left { border-right: 0; border-radius: 6px 0 0 6px; transform-origin: right center; }
+.flip-page-right { border-left: 0; border-radius: 0 6px 6px 0; transform-origin: left center; }
+.flip-page > .flip-source { height: 100%; min-height: 265px; position: relative; }
+.flip-page img { display: block; width: 100%; height: 100%; min-height: 265px; object-fit: cover; pointer-events: none; }
+.flip-page-number { position: absolute; bottom: 12px; right: 15px; z-index: 1; color: #7a8779; font: 700 .68rem "DM Sans"; letter-spacing: .12em; }
+.flip-pdf-cover { display: grid; place-items: center; align-content: center; gap: 8px; height: 100%; min-height: 265px; color: var(--accent); font-size: 4rem; background: linear-gradient(145deg, #fffdf6, #ece8da); }
+.flip-pdf-cover span { color: #617975; font-size: .7rem; letter-spacing: .18em; }
+.flip-cover { display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 265px; padding: 28px; color: #fff; background: linear-gradient(145deg, #102f2d, #07191b); }
+.flip-cover-mark { color: #9be86c; font: 800 1.5rem "Space Grotesk"; }.flip-cover strong { font: 700 2.2rem/.92 "Space Grotesk"; letter-spacing: -.06em; }.flip-cover small { color: #b9cec1; font-size: .52rem; letter-spacing: .16em; }
+.flip-page.is-empty { visibility: hidden; }
+.flipbook-seam { position: absolute; z-index: 2; left: 50%; top: 18px; bottom: 18px; width: 1px; background: rgba(16,42,36,.18); box-shadow: 5px 0 12px rgba(16,42,36,.12), -5px 0 12px rgba(16,42,36,.08); }
+.flipbook-arrow { z-index: 3; align-self: center; width: 30px; height: 42px; border: 0; border-radius: 50%; background: #0d3032; color: #9be86c; cursor: pointer; }.flipbook-arrow:hover:not(:disabled) { background: #1f5143; }.flipbook-arrow:disabled { opacity: .3; cursor: not-allowed; }
+.flipbook-footer { display: flex; justify-content: space-between; padding: 8px 36px 0; color: #c5d7ce; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }.flipbook-footer i { margin-right: 4px; }
+.flipbook-rail { display: flex; justify-content: center; gap: 6px; max-width: 100%; padding: 12px 42px 0; overflow-x: auto; }
+.flipbook-thumbnail { flex: 0 0 34px; width: 34px; height: 34px; padding: 0; overflow: hidden; border: 1px solid #45645a; border-radius: 3px; background: #102c2b; color: #9be86c; cursor: pointer; }.flipbook-thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; }.flipbook-thumbnail.is-active { border: 2px solid #9be86c; transform: translateY(-2px); }
+.is-turning-right .flip-page-right { animation: page-turn-right .45s ease; }.is-turning-left .flip-page-left { animation: page-turn-left .45s ease; } @keyframes page-turn-right { 0% { transform: perspective(1000px) rotateY(0); } 45% { transform: perspective(1000px) rotateY(-12deg); } 100% { transform: perspective(1000px) rotateY(0); } } @keyframes page-turn-left { 0% { transform: perspective(1000px) rotateY(0); } 45% { transform: perspective(1000px) rotateY(12deg); } 100% { transform: perspective(1000px) rotateY(0); } }
+@media (max-width: 575px) { .flipbook-spread { grid-template-columns: 28px 1fr 1fr 28px; min-height: 220px; }.flip-page, .flip-page > .flip-source, .flip-page img, .flip-pdf-cover, .flip-cover { min-height: 190px; }.flip-cover { padding: 15px; }.flip-cover strong { font-size: 1.25rem; }.flipbook-rail { padding-left: 28px; padding-right: 28px; } }
