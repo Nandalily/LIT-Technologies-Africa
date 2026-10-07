@@ -71,6 +71,14 @@
     spread.insertBefore(stage, left);
     stage.appendChild(left); stage.appendChild(right); if (seam) stage.appendChild(seam);
 
+    // The viewport is the column the book lives in; arrows hang off it, not off the (wider) spread
+    var vp = document.createElement('div');
+    vp.className = 'flipbook-viewport';
+    spread.parentNode.insertBefore(vp, spread);
+    vp.appendChild(spread);
+    if (prevBtn) vp.appendChild(prevBtn);
+    if (nextBtn) vp.appendChild(nextBtn);
+
     function node(i) {
       var d = document.createElement('div'); d.className = 'flip-face';
       var src = sources[i];
@@ -83,7 +91,13 @@
       return d;
     }
     function paint(el, i) { el.replaceChildren(node(i)); }
-    function place(sp) { stage.dataset.pos = sp === 0 ? 'start' : (2 * sp >= P ? 'end' : 'mid'); }
+    // Closed (cover or back cover alone) = 50% of the hero; open spread = 80%. Sizes live in the CSS.
+    var hero = root.closest('.digital-album-hero');
+    function place(sp) {
+      var pos = sp === 0 ? 'start' : (2 * sp >= P ? 'end' : 'mid');
+      spread.dataset.pos = pos;
+      if (hero) hero.classList.toggle('is-book-open', pos === 'mid');
+    }
 
     function makeLeaf(front, back) {
       var l = document.createElement('div'); l.className = 'flip-leaf';
