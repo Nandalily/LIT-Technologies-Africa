@@ -43,7 +43,42 @@ p { line-height: 1.7; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); background: var(--mint); font-weight: 700; text-decoration: none; padding: 9px 15px; clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); transition: background .2s ease, color .2s ease, transform .2s ease; }.text-link:hover { color: var(--green); background: #e0ff87; transform: translateX(2px); }
 .services-section { background: var(--paper); }.section-heading { margin-bottom: 45px; }.section-heading h2 { margin: 12px 0 0; max-width: 600px; }.service-card { border: 1px solid var(--line); background: transparent; color: var(--ink); text-decoration: none; padding: 30px; transition: transform .25s, background .25s, border-color .25s; }.service-card:hover { transform: translateY(-7px); color: var(--ink); background: #fff; border-color: #a7c0b3; }.service-card .service-number { color: #91a49d; display: block; font-size: .74rem; margin-bottom: 33px; }.service-card > i { color: #e87752; font-size: 2rem; }.service-card h4 { font-size: 1.25rem; margin: 24px 0 12px; }.service-card p { color: var(--muted); font-size: .9rem; }
 .stats { background: #e87752; padding: 68px 0; }.stats h1 { font-size: 3.6rem; letter-spacing: -.06em; margin-bottom: 3px; }.stats h1 span { color: #ffc7b2; }.stats p { color: #ffe4d9; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
-.programs-section { background: var(--cream); }.program-card { min-height: 260px; border-top: 3px solid var(--green); padding: 28px 25px; background: #fff; }.program-card.featured { background: var(--green); color: #fff; border-color: var(--mint); }.program-tag { color: #e87752; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }.program-card h3 { margin: 24px 0 12px; font-size: 1.45rem; }.program-card p { color: var(--muted); font-size: .9rem; }.program-card.featured p { color: #b8cec3; }.program-card a { display: inline-block; color: inherit; margin-top: 10px; font-size: .82rem; font-weight: 700; text-decoration: none; }
+
+.programs-section {
+    position: relative;
+    overflow: hidden;
+
+    /* Your normal section background */
+    background: #f7f8f5;
+}
+
+/* Background image layer */
+.programs-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: auto;
+    height: 60%;
+
+    background-image: url("/images/enets.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 1.92; /* controls transparency */
+    
+    z-index: 0;
+}
+
+/* Keep all actual content above the image */
+.programs-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+
+.programs-section { color:#013004; background: var(--hosting-blue); }.program-card { min-height: 260px; border-top: 3px solid var(--green); padding: 28px 25px; background: #fff; border-radius: 35px;
+    overflow: hidden;}.program-card.featured { background: var(--green); color: #fff; border-color: var(--mint); }.program-tag { color: #e87752; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }.program-card h3 { margin: 24px 0 12px; font-size: 1.45rem; }.program-card p { color: var(--muted); font-size: .9rem; }.program-card.featured p { color: #b8cec3; }.program-card a { display: inline-block; color: inherit; margin-top: 10px; font-size: .82rem; font-weight: 700; text-decoration: none; }
 .events-section { padding-top: 0; background: var(--cream); }.event-strip { display: flex; align-items: center; justify-content: space-between; gap: 30px; background: var(--green); color: #fff; padding: 42px 48px; }.event-strip h2 { font-size: 2rem; margin: 10px 0; }.event-strip p:not(.eyebrow) { color: #b8cec3; margin: 0; }.event-strip .eyebrow { color: var(--mint); }.event-date { display: flex; align-items: center; gap: 10px; }.event-date strong { color: var(--mint); font: 700 4.5rem "Space Grotesk"; line-height: .8; }.event-date span { font-size: .75rem; letter-spacing: .1em; }
 .events-page { background: var(--cream); padding: 105px 0 120px; }.events-page-heading { max-width: 720px; margin-bottom: 58px; }.events-page-heading h1 { max-width: 700px; font-size: clamp(3.3rem, 7vw, 6.8rem); line-height: .9; letter-spacing: -.075em; margin: 14px 0 22px; }.events-page-heading > p:last-child { max-width: 560px; color: var(--muted); font-size: 1.05rem; }.events-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }.event-detail-card { display: grid; grid-template-columns: .85fr 1.15fr; min-height: 310px; background: #fff; border-top: 3px solid var(--green); box-shadow: 10px 10px 0 rgba(100,203,62,.3); scroll-margin-top: 100px; }.event-detail-image { position: relative; min-height: 310px; background: var(--green); overflow: hidden; }.event-detail-image img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.82); }.event-detail-image span { position: absolute; left: 14px; bottom: 14px; background: var(--mint); color: var(--green); padding: 7px 10px; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }.event-detail-content { padding: 30px; }.event-detail-date { color: #e87752; font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }.event-detail-content h2 { font-size: 1.65rem; margin: 16px 0 12px; }.event-detail-content > p:not(.event-detail-date) { color: var(--muted); font-size: .9rem; line-height: 1.7; margin-bottom: 25px; }.events-empty { padding: 75px 30px; text-align: center; background: #fff; border-top: 3px solid var(--green); }.events-empty i { color: #e87752; font-size: 2.5rem; }.events-empty h2 { margin: 16px 0 8px; }.events-empty p { color: var(--muted); }.events-cta { background: var(--green); color: #fff; padding: 65px 0; }.events-cta .container { display: flex; align-items: center; justify-content: space-between; gap: 30px; }.events-cta h2 { max-width: 620px; margin: 9px 0 0; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.05em; }.events-cta .eyebrow { color: var(--mint); }
 .quote-section { background: var(--paper); }.quote-section blockquote { max-width: 850px; font: 500 clamp(2rem, 4vw, 4rem)/1.1 "Space Grotesk"; letter-spacing: -.05em; margin: 22px 0 34px; }.quote-author { font-weight: 700; }.quote-author span { color: var(--muted); font-weight: 400; margin-left: 10px; }
