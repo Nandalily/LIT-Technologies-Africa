@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
-const archiver = require("archiver");
+// const archiver = require("archiver");
 const router = express.Router();
 
 const dataPath = path.join(__dirname, "..", "data", "albums.json");
@@ -303,12 +303,15 @@ router.post("/albums/create", creatorUpload.array("images", 30), (req, res) => {
     res.status(201).json({ success: true, albumId, albumUrl: `/album/${albumId}` });
 });
 
-router.get("/albums/:id/download", (req, res) => {
+router.get("/albums/:id/download", async (req, res) => {
     if (!req.session.subscribed) return res.status(402).send("A subscription is required to download this album.");
-    const album = readAlbums().find((item) => item.id === req.params.id && item.creator);
-    if (!album) return res.status(404).send("Album not found");
+const album = readAlbums().find((item) => item.id === req.params.id && item.creator);
+if (!album) return res.status(404).send("Album not found");
 
-    const archive = archiver("zip", { zlib: { level: 9 } });
+const archiverModule = await import("archiver");
+const archiver = archiverModule.default;
+
+const archive = archiver("zip", { zlib: { level: 9 } });
     res.attachment(`${album.title.replace(/[^a-z0-9]+/gi, "-").toLowerCase() || "lit-album"}.zip`);
     archive.on("error", (error) => {
         console.error("Album export error:", error);
